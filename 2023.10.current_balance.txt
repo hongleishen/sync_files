@@ -1,8 +1,8 @@
 年 2023
-11.26
+11.27
     vlend    对账    -519000    vcheck
     招商    对账    0    vcheck
-    平安    对账    1453    vcheck
+    平安    对账    311    vcheck
     余额宝    对账    2000    vcheck
     农商    对账    0    vcheck
     花呗    对账    0    vcheck
