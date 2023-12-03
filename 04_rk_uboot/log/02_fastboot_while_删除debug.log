@@ -1,0 +1,93 @@
+
+
+
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+
+
+
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+
+
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add
+[dbg: drivers/usb/gadget/g_dnl.c, g_dnl_detach, 194 ] [182]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_handle_interrupt, 888 ] [865]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_uboot_handle_interrupt, 2763 ] [2691]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_interrupt, 2628 ] [2559]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_check_event_buf, 2603 ] [2535]  shl_add

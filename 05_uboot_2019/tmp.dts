@@ -1,0 +1,26 @@
+usb: usb@f4200000 {
+    compatible = "snps,dwc3";
+    reg = <0x0 0xf4200000 0x0 0x100000>;
+    interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>,
+                 <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>,
+                 <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>;
+    interrupt-names = "host",
+                      "otg",
+                      "peripheral";
+    //phys = <&usb2_phy>, <&usb3_phy>;
+    //phy-names = "usb2-phy", "usb3-phy";
+    phy_type = "utmi";
+    snps,hsphy_interface = "ulpi";
+    maximum_speed = "high-speed";
+    dr_mode = "host";
+    //dr_mode = "otg";
+    snps,dis_u3_susphy_quirk;
+    //snps,dis_u2_susphy_quirk;
+    //snps,quirk-frame-length-adjustment;
+    snps,usb3_utmi_sel_quirk;
+    snps,enblslpm_quirk;
+    //snps,dis-u2-freeclk-exists-quirk;
+    //snps,dis-u2-ssphy-suspend-quirk;
+    //snps,dis-u2-phy-power-down-quirk;
+    snps,tx-ipgap-linecheck-quirk;
+};
