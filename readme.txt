@@ -29,3 +29,12 @@ To github.com:hongleishen/sync_files.git
 topeet@ubuntu:~/wks/00_vscode_wks/sync_file$ git branch -a
 * init
   remotes/origin/init
+
+
+
+本地创建分支，修改，远程创建分支并推送到远程
+git checkout -b 1103
+
+....
+
+git push -u origin 1103
