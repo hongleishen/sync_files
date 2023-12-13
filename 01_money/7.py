@@ -698,6 +698,8 @@ def plot_datas(df_vbalance, df_abalance):
     print('plot_datas')
     
     plt.rcParams['font.sans-serif'] = ['SimHei'] # 显示中文   步骤一（替换sans-serif字体）
+    #plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei'] # 显示中文   步骤一（替换sans-serif字体）
+    #plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC']
     plt.rcParams['axes.unicode_minus'] = False   # 步骤二（解决坐标轴负数的负号显示问题）
     
     fig = plt.figure(figsize=(16, 8))
@@ -761,7 +763,10 @@ def plot_datas(df_vbalance, df_abalance):
     dir_fig = dir.replace('.txt', '.png')
     #dir_fig = dir_fig + '.current_bal' + '.txt'
     #plt.savefig(dir_fig, dpi = 1500)  
+    
+    # ubuntu 上因为字体报错打印很多错误，注释掉
     plt.show()
+
     #plt.savefig(dir_fig)
 
 
