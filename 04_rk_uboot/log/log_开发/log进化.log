@@ -1,0 +1,56 @@
+=> fastboot usb 0
+[dbg: cmd/fastboot.c, do_fastboot, 20 ] [19]  shl_add
+Enter fastboot... shl
+[dbg: cmd/fastboot.c, do_fastboot, 54 ]will usb_gadget_initialize
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_init, 712 ] [691]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_uboot_init, 795 ]dwc3_uboot_init dwc3 node not found
+[dbg: drivers/usb/dwc3/core.c, dwc3_cache_hwparams, 336 ] [323]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_alloc_event_buffers, 166 ] [160]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_alloc_one_event_buffer, 119 ] [115]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_core_init, 473 ] [457]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_core_soft_reset, 56 ] [54]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_core_num_eps, 324 ] [312]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_phy_setup, 385 ] [370]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_hsphy_mode_setup, 352 ] [338]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_alloc_scratch_buffers, 245 ] [236]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_setup_scratch_buffers, 262 ] [252]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_event_buffers_setup, 200 ] [193]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_core_init_mode, 621 ] [603]  shl_add
+[dbg: drivers/usb/dwc3/core.c, dwc3_set_mode, 41 ] [40]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_init, 2656 ] [2586]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_init_endpoints, 1686 ] [1642]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_init_hw_endpoints, 1631 ] [1588]  shl_add
+initializing ep0out
+initializing ep1out
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep2out
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep3out
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep4out
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep5out
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_gadget_init_hw_endpoints, 1631 ] [1588]  shl_add
+initializing ep0in
+initializing ep1in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep2in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep3in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep4in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep5in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep6in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep7in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep8in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+initializing ep9in
+[dbg: drivers/usb/dwc3/gadget.c, dwc3_alloc_trb_pool, 343 ] [334]  shl_add
+[dbg: drivers/usb/gadget/udc/udc-core.c, usb_add_gadget_udc, 229 ] [219]  shl_add
+[dbg: drivers/usb/gadget/udc/udc-core.c, usb_add_gadget_udc_release, 188 ] [179]  shl_add
+[dbg: drivers/usb/gadget/udc/udc-core.c, usb_gadget_set_state, 98 ] [94]  shl_add

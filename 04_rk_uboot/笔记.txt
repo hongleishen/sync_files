@@ -1,0 +1,15 @@
+用到的C文件
+
+cmd/fastboot.c
+drivers/usb/dwc3/core.c
+drivers/usb/dwc3/gadget.c
+drivers/usb/gadget/udc/udc-core.c
+
+drivers/usb/gadget/g_dnl.c
+drivers/usb/gadget/composite.c
+drivers/usb/gadget/epautoconf.c
+drivers/usb/gadget/f_rockusb.c
+drivers/usb/dwc3/ep0.c
+
+
+检查打印函数有没有其它类型的
