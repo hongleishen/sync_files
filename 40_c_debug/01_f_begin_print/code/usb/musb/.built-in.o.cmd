@@ -1,0 +1,1 @@
+cmd_drivers/usb/musb/built-in.o :=  rm -f drivers/usb/musb/built-in.o; /home/topeet/Android/rk356x_linux/prebuilts/gcc/linux-x86/aarch64/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-ar rcs drivers/usb/musb/built-in.o
