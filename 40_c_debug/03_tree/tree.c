@@ -5,31 +5,47 @@
 
 /*
 // 定义树节点结构体
-typedef struct TreeNode {
-    char* data;
-    struct TreeNode** children; // 子节点数组
+typedef struct tree_node {
+    char *data;
+    struct tree_node **children; // 子节点数组
     int child_count;            // 子节点数量
-} TreeNode;
+} tree_node;
+
+
+// 定义树节点结构体
+typedef struct tree_node {
+    char *data;
+    struct tree_node **children; // 子节点数组
+    int child_count;            // 子节点数量
+
+    struct tree_node *parent;	// 父节点
+    struct tree_node *current;  // 当前节点
+    int depth;                  // 节点深度
+} tree_node;
 */
 
 // 创建新节点
-TreeNode* create_node(const char* data) {
-    TreeNode* node = (TreeNode*)malloc(sizeof(TreeNode));
+tree_node *create_node(const char *data) {
+    tree_node *node = (tree_node*)malloc(sizeof(tree_node));
     node->data = strdup(data); // 复制字符串
     node->children = NULL;
     node->child_count = 0;
+	
+    //node->depth = parent ? parent->depth + 1 : 0; // 设置深度
+    return node;
+	
     return node;
 }
 
 // 添加子节点
-void add_child(TreeNode* parent, TreeNode* child) {
+void add_child(tree_node *parent, tree_node *child) {
     parent->child_count++;
-    parent->children = (TreeNode**)realloc(parent->children, sizeof(TreeNode*) * parent->child_count);
+    parent->children = (tree_node**)realloc(parent->children, sizeof(tree_node*)  *parent->child_count);
     parent->children[parent->child_count - 1] = child;
 }
 
 // 前序遍历
-void preorder_traversal(TreeNode* node) {
+void preorder_traversal(tree_node *node) {
     if (node == NULL) return;
     printf("%s ", node->data);
     for (int i = 0; i < node->child_count; i++) {
@@ -38,7 +54,7 @@ void preorder_traversal(TreeNode* node) {
 }
 
 // 后序遍历
-void postorder_traversal(TreeNode* node) {
+void postorder_traversal(tree_node *node) {
     if (node == NULL) return;
     for (int i = 0; i < node->child_count; i++) {
         postorder_traversal(node->children[i]);
@@ -47,18 +63,18 @@ void postorder_traversal(TreeNode* node) {
 }
 
 // 搜索节点
-TreeNode* search(TreeNode* node, const char* data) {
+tree_node *search(tree_node *node, const char *data) {
     if (node == NULL) return NULL;
     if (strcmp(node->data, data) == 0) return node;
     for (int i = 0; i < node->child_count; i++) {
-        TreeNode* result = search(node->children[i], data);
+        tree_node *result = search(node->children[i], data);
         if (result != NULL) return result;
     }
     return NULL;
 }
 
 // 释放树内存
-void free_tree(TreeNode* node) {
+void free_tree(tree_node *node) {
     if (node == NULL) return;
     for (int i = 0; i < node->child_count; i++) {
         free_tree(node->children[i]);
@@ -70,12 +86,12 @@ void free_tree(TreeNode* node) {
 
 
 // 移除子节点
-void remove_child(TreeNode* parent, TreeNode* child) {
+void remove_child(tree_node *parent, tree_node *child) {
     if (parent == NULL || child == NULL) return;
 
     // 创建一个新的子节点数组
     int new_count = 0;
-    TreeNode** new_children = malloc(sizeof(TreeNode*) * parent->child_count);
+    tree_node* *new_children = malloc(sizeof(tree_node*)  *parent->child_count);
     
     // 复制除了要移除的子节点外的所有子节点
     for (int i = 0; i < parent->child_count; i++) {
@@ -94,17 +110,17 @@ void remove_child(TreeNode* parent, TreeNode* child) {
 
 #if 0
 int main() {
-    /*  创建树
+    / * 创建树
                          root
                 child1           child2
 
             child3                    child4
     */
-    TreeNode* root = create_node("Root");
-    TreeNode* child1 = create_node("Child1");
-    TreeNode* child2 = create_node("Child2");
-    TreeNode* child3 = create_node("Child3");
-    TreeNode* child4 = create_node("Child4");
+    tree_node *root = create_node("Root");
+    tree_node *child1 = create_node("Child1");
+    tree_node *child2 = create_node("Child2");
+    tree_node *child3 = create_node("Child3");
+    tree_node *child4 = create_node("Child4");
 
     add_child(root, child1);
     add_child(root, child2);
@@ -120,7 +136,7 @@ int main() {
     printf("\n");
 
     // 搜索节点
-    TreeNode* search_result = search(root, "Child3");
+    tree_node *search_result = search(root, "Child3");
     if (search_result) {
         printf("\nNode found: %s\n", search_result->data);
     } else {

@@ -1,22 +1,43 @@
 #ifndef TREE_H
 #define TREE_H
 
+
+#define DEBUG_SHL
+#ifdef DEBUG_SHL
+#define my_dbg(format, ...)     printf("[dbg: %s, %d ]" format, __func__, __LINE__, ##__VA_ARGS__)
+#define n_my_dbg(format, ...) printf("\n[dbg: %s, %d ]" format, __func__, __LINE__, ##__VA_ARGS__)
+//#define n_my_dbg(format, ...) printf("\n[dbg: %s, %d ]" format, __func__, __LINE__, ##__VA_ARGS__)
+
+
+#else
+#define my_dbg(format, ...)
+#define n_my_dbg(format, ...)
+#endif
+
+
 // 定义树节点结构体
-typedef struct TreeNode {
-    char* data;
-    struct TreeNode** children; // 子节点数组
+typedef struct tree_node {
+    char *data;
+
+    struct tree_node **children; // 子节点数组
     int child_count;            // 子节点数量
-} TreeNode;
 
+    struct tree_node *parent;           // 父节点
+    int depth;                          // 节点深度
+} tree_node;
 
-TreeNode* create_node(const char* data);
-void add_child(TreeNode* parent, TreeNode* child);
+extern tree_node *root;
+extern tree_node *current;
 
-void preorder_traversal(TreeNode* node);
-void postorder_traversal(TreeNode* node);
-TreeNode* search(TreeNode* node, const char* data);
+tree_node *create_node(const char *data);
+//void add_child(tree_node *parent, tree_node *child);
+void add_child(tree_node *child);
 
-void free_tree(TreeNode* node);
-void remove_child(TreeNode* parent, TreeNode* child);
+void preorder_traversal(tree_node *node);
+void postorder_traversal(tree_node *node);
+tree_node *search(tree_node *node, const char *data);
+
+void free_tree(tree_node **pp_node);
+void remove_child(tree_node *parent, tree_node *child);
 
 #endif

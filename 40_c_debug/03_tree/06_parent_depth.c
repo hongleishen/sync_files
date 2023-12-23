@@ -1,22 +1,30 @@
 #include <stdio.h>
 #include "tree.h"
 
-tree_node *root;
-tree_node *current_parent;
+// tree_node *root;
+// tree_node *current;
+
+
+void f_end_hook(void)
+{
+
+
+}
+
 
 // 叶子函数定义
 void _b1() {
     printf("%s\n", __func__);
 
     tree_node *b1 = create_node("b1");
-    add_child(current_parent, b1);
+    add_child(b1);
 }
 
 void _b2() {
     printf("%s\n", __func__);
 
     tree_node *b2 = create_node("b2");
-    add_child(current_parent, b2);
+    add_child(b2);
 }
 
 // 分支函数定义
@@ -24,8 +32,8 @@ void _a1() {
     printf("%s\n", __func__);
 
     tree_node *a1 = create_node("a1");
-    add_child(root, a1);
-    current_parent = a1;
+    add_child(a1);
+    current = a1;
 
     _b1();
     _b2();
@@ -36,15 +44,15 @@ void _b_3() {
     printf("%s\n", __func__);
 
     tree_node *b_3 = create_node("b_3");
-    add_child(current_parent, b_3);
+    add_child(b_3);
 }
 
 void _a2() {
     printf("%s\n", __func__);
 
     tree_node *a2 = create_node("a2");
-    add_child(root, a2);
-    current_parent = a2;
+    add_child(a2);
+    current = a2;
 
     _b_3();
 }
@@ -55,7 +63,7 @@ void rootFunction() {
     printf("%s\n", __func__);
 
     root = create_node("root");
-    current_parent = root;
+    current = root;
     
     _a1();
     _a2();

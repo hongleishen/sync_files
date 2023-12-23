@@ -1,4 +1,4 @@
-class TreeNode:
+class tree_node:
     def __init__(self, data):
         self.data = data
         self.children = []
@@ -32,11 +32,11 @@ class TreeNode:
         return None
 
 # 创建N叉树
-root = TreeNode("Root")
-child1 = TreeNode("Child1")
-child2 = TreeNode("Child2")
-child3 = TreeNode("Child3")
-child4 = TreeNode("Child4")
+root = tree_node("Root")
+child1 = tree_node("Child1")
+child2 = tree_node("Child2")
+child3 = tree_node("Child3")
+child4 = tree_node("Child4")
 
 root.add_child(child1)
 root.add_child(child2)
