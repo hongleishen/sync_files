@@ -2,12 +2,12 @@
 #include "tree.h"
 
 
-TreeNode *root;
-TreeNode *a1;
-TreeNode *b1;
-TreeNode *b2;
-TreeNode *a2;
-TreeNode *b_3;
+tree_node *root;
+tree_node *a1;
+tree_node *b1;
+tree_node *b2;
+tree_node *a2;
+tree_node *b_3;
 
 // 叶子函数定义
 void _b1() {
