@@ -524,8 +524,8 @@ function build_uboot(){
 		ln -rsf $TOP_DIR/u-boot/boot.img $TOP_DIR/rockdev/
 		ln -rsf $TOP_DIR/u-boot/recovery.img $TOP_DIR/rockdev/ || true
 	fi
-
-	finish_build
+	
+    finish_build
 }
 
 # TODO: build_spl can be replaced by build_uboot with define RK_LOADER_UPDATE_SPL

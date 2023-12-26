@@ -91,3 +91,8 @@ index e471e0a..7fc247a 100644
 -       f_end_hook();
 +       // f_end_hook();
  }
+
+
+
+怎么拷贝 uboot.img文件的?
+     sudo cp -f /home/topeet/wks/05_rk356x_linux/u-boot/uboot.img  /home/topeet/wks/01_env/RKDevTool_Release_v2.84/image

@@ -1,13 +1,14 @@
-import os
+def count_starting_tabs(line):
+    count = 0
+    for char in line:
+        if char == "\t":
+            count += 1
+        else:
+            break
+    return count
 
-def test_os_walk(directory):
-    for foldername, subfolders, filenames in os.walk(directory):
-        print(f'当前目录: {foldername}')
-        for subfolder in subfolders:
-            print(f'子文件夹: {os.path.join(foldername, subfolder)}')
-        for filename in filenames:
-            print(f'文件: {os.path.join(foldername, filename)}')
-
-if __name__ == "__main__":
-    directory_to_walk = "00_c_code\simple"  # 将此路径替换为你要测试的目录路径
-    test_os_walk(directory_to_walk)
+# 示例使用
+line = "            hello this is str"
+#tabs = 0
+tabs = count_starting_tabs(line)
+print("字符串开头的Tab数量:", tabs)
