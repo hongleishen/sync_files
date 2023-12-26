@@ -28,6 +28,25 @@ int depth;                  // 节点深度
 tree_node *root = NULL;
 tree_node *current = NULL;      // current 代表当前运行的node，对于新创建的node，它就是parent node
 
+void *my_realloc(void *ptr, size_t new_size) {
+    if (new_size == 0) {
+        free(ptr);
+        return NULL;
+    }
+
+    if (!ptr) {
+        return malloc(new_size);
+    }
+
+    void *new_ptr = malloc(new_size);
+    if (new_ptr) {
+        memcpy(new_ptr, ptr, new_size); // 复制旧内存内容到新内存
+        free(ptr);
+    }
+    return new_ptr;
+}
+
+
 
 // 创建新节点
 tree_node *create_node(const char *data) 
@@ -51,7 +70,7 @@ void add_child(tree_node *child)
 {
     tree_node *parent = current;
 	parent->child_count++;
-	parent->children = (tree_node**)realloc(parent->children, sizeof(tree_node*)  *parent->child_count);
+	parent->children = (tree_node**)my_realloc(parent->children, sizeof(tree_node*)  *parent->child_count);
 	parent->children[parent->child_count - 1] = child;
 
     child->parent = parent;

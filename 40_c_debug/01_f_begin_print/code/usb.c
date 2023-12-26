@@ -1,26 +1,33 @@
 
 int sub(int a, int b) 
 {
+	f_start_hook(3);
     return a + b;
+	f_end_hook();
 }
 
 int add(int a, int b) 
 {
+	f_start_hook(8);
     return a + b;
+	f_end_hook();
 }
 
 static void usb_display_string(struct usb_device *dev, int index)
 {
+	f_start_hook(13);
 	ALLOC_CACHE_ALIGN_BUFFER(char, buffer, 256);
 
 	if (index != 0) {
 		if (usb_string(dev, index, &buffer[0], 256) > 0)
 			printf("String: \"%s\"", buffer);
 	}
+	f_end_hook();
 }
 
 static void usb_display_desc(struct usb_device *dev)
 {
+	f_start_hook(23);
 	uint packet_size = dev->descriptor.bMaxPacketSize0;
 
 	if (dev->descriptor.bDescriptorType == USB_DT_DEVICE) {
@@ -54,11 +61,13 @@ static void usb_display_desc(struct usb_device *dev)
 			dev->descriptor.bcdDevice & 0xff);
 	}
 
+	f_end_hook();
 }
 
 static void usb_display_conf_desc(struct usb_config_descriptor *config,
 				  struct usb_device *dev)
 {
+	f_start_hook(61);
 	printf("   Configuration: %d\n", config->bConfigurationValue);
 	printf("   - Interfaces: %d %s%s%dmA\n", config->bNumInterfaces,
 	       (config->bmAttributes & 0x40) ? "Self Powered " : "Bus Powered ",
@@ -69,4 +78,6 @@ static void usb_display_conf_desc(struct usb_config_descriptor *config,
 		usb_display_string(dev, config->iConfiguration);
 		printf("\n");
 	}
+	f_end_hook();
 }
+

@@ -129,3 +129,32 @@ int main() {
     return 0;
 }
 
+/*
+[dbg: _f_start_hook, 19 ] root == NULL, return
+rootFunction
+    a1
+        b1
+        --root,0;    a1,1;    b1,2;
+        current->data:b1, current->depth = 2;  set current to a1
+
+        b2
+        --root,0;    a1,1;    b2,2;
+        current->data:b2, current->depth = 2;  set current to a1
+
+    --root,0;    a1,1;
+    current->data:a1, current->depth = 1;  set current to root
+
+    a2
+        b_3
+        --root,0;    a2,1;    b_3,2;
+        current->data:b_3, current->depth = 2;  set current to a2
+
+    --root,0;    a2,1;
+    current->data:a2, current->depth = 1;  set current to root
+
+[dbg: free_tree, 143 ]node->data = root
+[dbg: rootFunction, 106 ]root is null after free
+[dbg: _f_end_hook, 36 ] root == NULL, return
+
+-------preorder_traversal:
+*/

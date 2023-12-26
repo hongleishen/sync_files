@@ -70,4 +70,3 @@ static void usb_display_conf_desc(struct usb_config_descriptor *config,
 		printf("\n");
 	}
 }
-
