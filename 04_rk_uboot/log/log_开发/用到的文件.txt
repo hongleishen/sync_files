@@ -1,0 +1,12 @@
+cmd/fastboot.c
+
+drivers/usb/dwc3/core.c
+drivers/usb/dwc3/gadget.c
+drivers/usb/dwc3/ep0.c
+
+drivers/usb/gadget/f_rockusb.c
+drivers/usb/gadget/g_dnl.c
+drivers/usb/gadget/udc/udc-core.c
+drivers/usb/gadget/composite.c
+drivers/usb/gadget/epautoconf.c
+drivers/usb/gadget/config.c

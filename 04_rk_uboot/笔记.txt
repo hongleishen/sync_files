@@ -1,15 +1,20 @@
 用到的C文件
 
-cmd/fastboot.c
-drivers/usb/dwc3/core.c
-drivers/usb/dwc3/gadget.c
-drivers/usb/gadget/udc/udc-core.c
+~/wks/01_rk356x_linux/u-boot
 
-drivers/usb/gadget/g_dnl.c
-drivers/usb/gadget/composite.c
-drivers/usb/gadget/epautoconf.c
-drivers/usb/gadget/f_rockusb.c
-drivers/usb/dwc3/ep0.c
+
+~/wks/01_rk356x_linux/u-boot/cmd/fastboot.c
+
+~/wks/01_rk356x_linux/u-boot/drivers/usb/dwc3/core.c
+~/wks/01_rk356x_linux/u-boot/drivers/usb/dwc3/gadget.c
+~/wks/01_rk356x_linux/u-boot/drivers/usb/dwc3/ep0.c
+
+~/wks/01_rk356x_linux/u-boot/drivers/usb/gadget/f_rockusb.c
+~/wks/01_rk356x_linux/u-boot/drivers/usb/gadget/g_dnl.c
+~/wks/01_rk356x_linux/u-boot/drivers/usb/gadget/udc/udc-core.c
+~/wks/01_rk356x_linux/u-boot/drivers/usb/gadget/composite.c
+~/wks/01_rk356x_linux/u-boot/drivers/usb/gadget/epautoconf.c
+~/wks/01_rk356x_linux/u-boot/drivers/usb/gadget/config.c
 
 
 检查打印函数有没有其它类型的
@@ -18,3 +23,71 @@ drivers/usb/dwc3/ep0.c
 12.21:
 只有reg打印情况下，
 反复插拔，有HS，有驱动识别， fastboot 有数据； 但有8层概率驱动不识别
+
+
+
+
+dwc3_uboot_handle_interrupt        [drivers/usb/dwc3/core.c, 942] 895
+--root,0;    dwc3_uboot_init,1;    
+                dwc3_alloc_event_buffers,2;    
+                    dwc3_alloc_one_event_buffer,3;    
+                        dwc3_core_init,4;    
+                            dwc3_core_soft_reset,5;    
+                                dwc3_alloc_scratch_buffers,6;    
+                                    dwc3_setup_scratch_buffers,7;    
+                                        dwc3_event_buffers_setup,8;    
+                                            dwc3_core_init_mode,9;    
+                                                dwc3_uboot_handle_interrupt,10;    
+
+current_node->data:dwc3_uboot_handle_interrupt, current_node->depth = 10;  set current_node to dwc3_core_init_mode
+
+
+// my_dbg 过多，关闭的几个
+5 个结果 - 3 文件
+
+u-boot • drivers/usb/dwc3/core.c:
+  942  	f_start_hook(895);
+  943: 	// my_dbg(" [865]  shl_add\n");
+  944  	struct dwc3 *dwc = NULL;
+
+u-boot • drivers/usb/dwc3/gadget.c:
+  2602  {
+  2603: 	// my_dbg(" [2535]  shl_add\n");
+  2604  	struct dwc3_event_buffer *evt;
+
+  2627  {
+  2628: 	// my_dbg(" [2559]  shl_add\n");
+  2629  	struct dwc3			*dwc = _dwc;
+
+  2762  {
+  2763: 	// my_dbg(" [2691]  shl_add\n");
+  2764  	int ret = dwc3_interrupt(0, dwc);
+
+u-boot • drivers/usb/gadget/g_dnl.c:
+  193  {
+  194: 	// my_dbg(" [182]  shl_add\n");
+  195  	return g_dnl_detach_request;
+
+
+打开测试重复出现
+shl@qk-Vostro-3671:~/wks/01_rk356x_linux/u-boot$ git diff drivers/usb/dwc3/core.c
+diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
+index e471e0a..7fc247a 100644
+--- a/drivers/usb/dwc3/core.c
++++ b/drivers/usb/dwc3/core.c
+@@ -939,7 +939,7 @@ void dwc3_uboot_exit(int index)
+  */
+ void dwc3_uboot_handle_interrupt(int index)
+ {
+-       f_start_hook(895);
++       // f_start_hook(895);
+        // my_dbg(" [865]  shl_add\n");
+        struct dwc3 *dwc = NULL;
+
+@@ -950,7 +950,7 @@ void dwc3_uboot_handle_interrupt(int index)
+                dwc3_gadget_uboot_handle_interrupt(dwc);
+                break;
+        }
+-       f_end_hook();
++       // f_end_hook();
+ }
