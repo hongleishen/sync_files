@@ -121,3 +121,6 @@ gadget.c 注释里的   f_end_hook 怎么删除？
 
 	/* Endpoint IRQ, handle it and return early */
 
+
+
+崩溃是否是  root 继续删除导致？

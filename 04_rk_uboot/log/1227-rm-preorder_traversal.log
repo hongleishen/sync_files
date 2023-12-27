@@ -1,0 +1,119 @@
+=> fastboot usb usb0
+Enter fastboot... shl
+    dwc3_uboot_init        [drivers/usb/dwc3/core.c, 724] 691
+        dwc3_cache_hwparams        [drivers/usb/dwc3/core.c, 342] 323
+        dwc3_alloc_event_buffers        [drivers/usb/dwc3/core.c, 169] 160
+            dwc3_alloc_one_event_buffer        [drivers/usb/dwc3/core.c, 121] 115
+        dwc3_core_init        [drivers/usb/dwc3/core.c, 482] 457
+            dwc3_core_soft_reset        [drivers/usb/dwc3/core.c, 57] 54
+            dwc3_core_num_eps        [drivers/usb/dwc3/core.c, 329] 312
+            dwc3_phy_setup        [drivers/usb/dwc3/core.c, 393] 370
+                dwc3_hsphy_mode_setup        [drivers/usb/dwc3/core.c, 359] 338
+            dwc3_alloc_scratch_buffers        [drivers/usb/dwc3/core.c, 249] 236
+            dwc3_setup_scratch_buffers        [drivers/usb/dwc3/core.c, 266] 252
+        dwc3_event_buffers_setup        [drivers/usb/dwc3/core.c, 203] 193
+        dwc3_core_init_mode        [drivers/usb/dwc3/core.c, 631] 603
+            dwc3_set_mode        [drivers/usb/dwc3/core.c, 41] 40
+            dwc3_gadget_init        [drivers/usb/dwc3/gadget.c, 2690] 2586
+                dwc3_gadget_init_endpoints        [drivers/usb/dwc3/gadget.c, 1700] 1642
+                    dwc3_gadget_init_hw_endpoints        [drivers/usb/dwc3/gadget.c, 1645] 1588
+                        dwc3_alloc_trb_pool        [drivers/usb/dwc3/gadget.c, 346] 334
+                        dwc3_alloc_trb_pool        [drivers/usb/dwc3/gadget.c, 346] 334
+                    func dwc3_alloc_trb_pool occurred_frequently!!!!!!!
+                    dwc3_gadget_init_hw_endpoints        [drivers/usb/dwc3/gadget.c, 1645] 1588
+    dwc3_gadget_ep_alloc_request        [drivers/usb/dwc3/gadget.c, 702] 674
+    dwc3_gadget_set_selfpowered        [drivers/usb/dwc3/gadget.c, 1400] 1352
+    dwc3_gadget_pullup        [drivers/usb/dwc3/gadget.c, 1468] 1418
+        dwc3_gadget_run_stop        [drivers/usb/dwc3/gadget.c, 1413] 1364
+    dwc3_gadget_start        [drivers/usb/dwc3/gadget.c, 1513] 1458
+        __dwc3_gadget_ep_enable        [drivers/usb/dwc3/gadget.c, 490] 470
+            dwc3_gadget_start_config        [drivers/usb/dwc3/gadget.c, 377] 362
+            dwc3_send_gadget_ep_cmd        [drivers/usb/dwc3/gadget.c, 305] 296
+            dwc3_gadget_set_ep_config        [drivers/usb/dwc3/gadget.c, 404] 388
+            dwc3_send_gadget_ep_cmd        [drivers/usb/dwc3/gadget.c, 305] 296
+            dwc3_gadget_set_xfer_resource        [drivers/usb/dwc3/gadget.c, 466] 448
+        func dwc3_send_gadget_ep_cmd occurred_frequently!!!!!!!
+        __dwc3_gadget_ep_enable        [drivers/usb/dwc3/gadget.c, 490] 470
+            dwc3_gadget_start_config        [drivers/usb/dwc3/gadget.c, 377] 362
+            dwc3_gadget_set_ep_config        [drivers/usb/dwc3/gadget.c, 404] 388
+            dwc3_gadget_set_xfer_resource        [drivers/usb/dwc3/gadget.c, 466] 448
+        dwc3_gadget_enable_irq        [drivers/usb/dwc3/gadget.c, 1484] 1433
+    dwc3_gadget_pullup        [drivers/usb/dwc3/gadget.c, 1468] 1418
+        dwc3_gadget_run_stop        [drivers/usb/dwc3/gadget.c, 1413] 1364
+OK
+    dwc3_interrupt        [drivers/usb/dwc3/gadget.c, 2662] 2559
+        dwc3_check_event_buf        [drivers/usb/dwc3/gadget.c, 2637] 2535
+    dwc3_process_event_buf        [drivers/usb/dwc3/gadget.c, 2569] 2470
+        dwc3_process_event_entry        [drivers/usb/dwc3/gadget.c, 2549] 2452
+            dwc3_gadget_interrupt        [drivers/usb/dwc3/gadget.c, 2501] 2406
+                dwc3_gadget_reset_interrupt        [drivers/usb/dwc3/gadget.c, 2168] 2085
+                    dwc3_reset_gadget        [drivers/usb/dwc3/gadget.c, 2041] 1968
+                    dwc3_stop_active_transfers        [drivers/usb/dwc3/gadget.c, 2100] 2023
+                    dwc3_clear_stall_all_ep        [drivers/usb/dwc3/gadget.c, 2120] 2041
+    dwc3_interrupt        [drivers/usb/dwc3/gadget.c, 2662] 2559
+        dwc3_check_event_buf        [drivers/usb/dwc3/gadget.c, 2637] 2535
+    dwc3_process_event_buf        [drivers/usb/dwc3/gadget.c, 2569] 2470
+        dwc3_process_event_entry        [drivers/usb/dwc3/gadget.c, 2549] 2452
+            dwc3_gadget_interrupt        [drivers/usb/dwc3/gadget.c, 2501] 2406
+                dwc3_gadget_conndone_interrupt        [drivers/usb/dwc3/gadget.c, 2249] 2162
+                    dwc3_update_ram_clk_sel        [drivers/usb/dwc3/gadget.c, 2222] 2137
+                        __dwc3_gadget_ep_enable        [drivers/usb/dwc3/gadget.c, 490] 470
+                            dwc3_gadget_set_ep_config        [drivers/usb/dwc3/gadget.c, 404] 388
+                        __dwc3_gadget_ep_enable        [drivers/usb/dwc3/gadget.c, 490] 470
+                        func dwc3_gadget_set_ep_config occurred_frequently!!!!!!!
+            dwc3_process_event_entry        [drivers/usb/dwc3/gadget.c, 2549] 2452
+                dwc3_gadget_interrupt        [drivers/usb/dwc3/gadget.c, 2501] 2406
+                    dwc3_gadget_linksts_change_interrupt        [drivers/usb/dwc3/gadget.c, 2374] 2283
+"Synchronous Abort" handler, esr 0x96000041
+
+* Reason:        Exception from a Data abort, from current exception level
+* PC         =   0000000000ad2710
+* LR         =   0000000000a1906c
+* SP         =   000000007b9f8ae0
+* ESR_EL2    =   0000000096000041
+* Reloc Off  =   000000007d319000
+
+x0 : 000000007de78b68 x1 : 000000007de78b48
+x2 : 0000000002187498 x3 : 0000000000000067
+x4 : 000000000000005f x5 : 000000007de78bc8
+x6 : 0000000000000031 x7 : 000000007de4cc60
+x8 : 000000007bdbebc0 x9 : 0000000000000008
+x10: 00000000ffffffe8 x11: 0000000000000006
+x12: 000000000001869f x13: 000000007b7f90f0
+x14: 0000000000c00800 x15: 00000000ffffffff
+x16: 0000000000000002 x17: 0000000004c00800
+x18: 000000007b9ffcd0 x19: 000000007de78b48
+x20: 000000007ddfa840 x21: 0000000000000000
+x22: 000000007de78b68 x23: 000000007de78b88
+x24: 000000007de78b40 x25: 000000007de78b48
+x26: 0000000000000308 x27: 0000000000000008
+x28: 000000007de291e6 x29: 000000007b9f8cc0
+
+
+Call trace:
+  PC:	[< 00ad2710 >]
+  LR:	[< 00a1906c >]
+
+Stack:
+	[< 00ad2710 >]
+	[< 00a19148 >]
+	[< 00a979fc >]
+	[< 00a08650 >]
+	[< 00a1505c >]
+	[< 00a36c20 >]
+	[< 00a1b2cc >]
+	[< 00a1b46c >]
+	[< 00a1b9b0 >]
+	[< 00a362cc >]
+	[< 00a195bc >]
+	[< 00a1c5cc >]
+	[< 00ab55dc >]
+	[< 00a1c9c0 >]
+	[< 00a01e40 >]
+
+Copy info from "Call trace..." to a file(eg. dump.txt), and run
+command in your U-Boot project: ./scripts/stacktrace.sh dump.txt
+
+Resetting CPU ...
+
+### ERROR ### Please RESET the board ###
