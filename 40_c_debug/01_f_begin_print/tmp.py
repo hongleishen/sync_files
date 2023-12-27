@@ -1,18 +1,13 @@
-def split_on_return(s):
-    parts = s.split("return")  # 使用1作为第二个参数，确保字符串只被分割一次
-    return parts
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-# 示例
-#line = "这是一行字符串，其中包含return关键字"
-line = "        return 123"
-parts = split_on_return(line)
+for number in numbers:
+    if number % 2 == 0:  # 检查数字是否为偶数
+        print("%2 = 0")
+        c =6 + 4
+        continue        # 如果是偶数，跳过后续代码，继续下一次循环
 
-print("分割前的部分:", parts[0])
-if len(parts) > 1:
-    print("分割后的部分:", parts[1])
-else:
-    print("字符串中没有 'return'")
+    if number % 5 == 0:
+        print(f"{number}%4 == 0")
+        continue
 
-
-line = parts[0] + '{f_end_hook();  ' + 'return' + parts[1] + '}'
-print(line)
+    print(number)  # 只有当数字不是偶数时，这行代码才会执行

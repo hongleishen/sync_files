@@ -17,6 +17,21 @@
 ~/wks/01_rk356x_linux/u-boot/drivers/usb/gadget/config.c
 
 
+win:
+Z:\01_rk356x_linux\u-boot\drivers\usb\
+
+Z:\01_rk356x_linux\u-boot\drivers\usb\dwc3\core.c
+Z:\01_rk356x_linux\u-boot\drivers\usb\dwc3\gadget.c
+Z:\01_rk356x_linux\u-boot\drivers\usb\dwc3\ep0.c
+
+Z:\01_rk356x_linux\u-boot\drivers\usb\gadget\f_rockusb.c
+Z:\01_rk356x_linux\u-boot\drivers\usb\gadget\g_dnl.c
+Z:\01_rk356x_linux\u-boot\drivers\usb\gadget\udc\udc-core.c
+Z:\01_rk356x_linux\u-boot\drivers\usb\gadget\composite.c
+Z:\01_rk356x_linux\u-boot\drivers\usb\gadget\epautoconf.c
+Z:\01_rk356x_linux\u-boot\drivers\usb\gadget\config.c
+
+
 检查打印函数有没有其它类型的
 
 
@@ -96,3 +111,13 @@ index e471e0a..7fc247a 100644
 
 怎么拷贝 uboot.img文件的?
      sudo cp -f /home/topeet/wks/05_rk356x_linux/u-boot/uboot.img  /home/topeet/wks/01_env/RKDevTool_Release_v2.84/image
+
+gadget.c 注释里的   f_end_hook 怎么删除？
+
+
+新 f_end_hook出错地方:
+	return dwc3_send_gadget_ep_cmd(dwc, dep->number,
+			DWC3_DEPCMD_SETEPCONFIG, &params);
+
+	/* Endpoint IRQ, handle it and return early */
+

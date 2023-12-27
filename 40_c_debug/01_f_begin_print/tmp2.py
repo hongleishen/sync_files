@@ -12,3 +12,16 @@ line = "            hello this is str"
 #tabs = 0
 tabs = count_starting_tabs(line)
 print("字符串开头的Tab数量:", tabs)
+
+in_lines = ["hello", "world", "/**", "* Caller", "* return 0 on"]
+
+for index, line in enumerate(in_lines, start=1):
+    print("line = ", line)
+
+    if line.startswith("hello") or line.startswith("/**") or line.startswith("*") \
+            or    line.startswith("*/"):
+        print("find commit *")
+        continue
+
+    print(line,  "       not continue ==================")
+
