@@ -1,0 +1,126 @@
+my_dbg 添加commit
+
+commit c21144f1d1f29933bd1d71bb6c6a97103392eff5
+Author: shl <shladi@126.com>
+Date:   Sat Nov 4 22:34:23 2023 +0800
+
+    add my_dbg
+
+    Signed-off-by: shl <shladi@126.com>
+
+
+因为打印频繁在此commit关闭几个打印:
+// • drivers/usb/gadget/g_dnl.c:       // 192
+bool g_dnl_detach(void)
+{
+	// my_dbg(" [182]  shl_add\n");
+	return g_dnl_detach_request;
+}
+
+
+// u-boot • drivers/usb/dwc3/core.c:   // 894
+void dwc3_uboot_handle_interrupt(int index)
+{
+	// my_dbg(" [865]  shl_add\n");
+	struct dwc3 *dwc = NULL;
+
+	list_for_each_entry(dwc, &dwc3_list, list) {
+		if (dwc->index != index)
+			continue;
+
+		dwc3_gadget_uboot_handle_interrupt(dwc);
+		break;
+	}
+}
+
+// u-boot • drivers/usb/dwc3/gadget.c:
+// 2603
+static irqreturn_t dwc3_check_event_buf(struct dwc3 *dwc, u32 buf)
+{
+	// my_dbg(" [2535]  shl_add\n");
+	struct dwc3_event_buffer *evt;
+	u32 count;
+	u32 reg;
+
+// 2626
+static irqreturn_t dwc3_interrupt(int irq, void *_dwc)
+{
+	// my_dbg(" [2559]  shl_add\n");
+
+// 2761
+void dwc3_gadget_uboot_handle_interrupt(struct dwc3 *dwc)
+{
+	// my_dbg(" [2691]  shl_add\n");
+	int ret = dwc3_interrupt(0, dwc);
+
+// ======================================================================
+// ======================================================================
+
+fastboot.c while 中的
+usb_gadget_handle_interrupts(controller_index);
+可能是在
+
+// evb_rk3568.c 中定义
+int usb_gadget_handle_interrupts(void)
+{
+	dwc3_uboot_handle_interrupt(0);
+	return 0;
+}
+
+// core.c
+void dwc3_uboot_handle_interrupt(int index)
+{
+	// my_dbg(" [865]  shl_add\n");
+	struct dwc3 *dwc = NULL;
+
+	list_for_each_entry(dwc, &dwc3_list, list) {
+		if (dwc->index != index)
+			continue;
+
+		dwc3_gadget_uboot_handle_interrupt(dwc);
+		break;
+	}
+}
+
+// gadget.c
+void dwc3_gadget_uboot_handle_interrupt(struct dwc3 *dwc)
+{
+	// my_dbg(" [2691]  shl_add\n");
+	int ret = dwc3_interrupt(0, dwc);
+
+	if (ret == IRQ_WAKE_THREAD) {
+		int i;
+		struct dwc3_event_buffer *evt;
+
+		dwc3_thread_interrupt(0, dwc);
+
+		/* Clean + Invalidate the buffers after touching them */
+		for (i = 0; i < dwc->num_event_buffers; i++) {
+			evt = dwc->ev_buffs[i];
+			dwc3_flush_cache((uintptr_t)evt->buf, evt->length);
+		}
+	}
+}
+
+// 2626
+static irqreturn_t dwc3_interrupt(int irq, void *_dwc)
+{
+	// my_dbg(" [2559]  shl_add\n");
+	struct dwc3			*dwc = _dwc;
+	int				i;
+	irqreturn_t			ret = IRQ_NONE;
+
+	spin_lock(&dwc->lock);
+
+	for (i = 0; i < dwc->num_event_buffers; i++) {
+		irqreturn_t status;
+
+		status = dwc3_check_event_buf(dwc, i);
+		if (status == IRQ_WAKE_THREAD)
+			ret = status;
+	}
+
+	spin_unlock(&dwc->lock);
+
+	return ret;
+}

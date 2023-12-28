@@ -1,0 +1,7 @@
+12-22_14-12-mydbg_io_debug.log
+12-28_15-01-mydbg-io-debug.log
+大体相同，后面传输部分有不同，先看12-22 再看12-28
+
+
+occurred_frequently 函数去掉，看是否正常   // 结果树错乱，但是没有崩溃
+结合 my_dbg， my_dbg 用 d_printf 打印，查找出错地方。
