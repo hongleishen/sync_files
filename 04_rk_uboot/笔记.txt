@@ -1,3 +1,6 @@
+dwc->revision = 0x5533300a
+
+
 用到的C文件
 
 ~/wks/01_rk356x_linux/u-boot
