@@ -61,6 +61,7 @@ g_dnl_register("usb_dnl_fastboot");
                                     composite_bind()
 
                                         cdev = calloc(sizeof *cdev, 1);         // 分配cdev
+                                        gadget->dev.driver_data = cdev;
                                         cdev->gadget = gadget;
                                         cdev->req = usb_ep_alloc_request(gadget->ep0, GFP_KERNEL);
                                         cdev->req->complete = composite_setup_complete;
@@ -71,12 +72,13 @@ g_dnl_register("usb_dnl_fastboot");
                                         ---->
                                             g_dnl_bind();  //  下面解释 g_dnl_bind(cdev)
 
-                                            
+
 
                                 usb_gadget_udc_start(udc);
                                     udc->gadget->ops->udc_start(udc->gadget, udc->driver);
                                         // gadget.c
-                                        static int dwc3_gadget_start(struct usb_gadget *g, struct usb_gadget_driver *driver)
+                                        dwc3_gadget_start(struct usb_gadget *g, struct usb_gadget_driver *driver)
+                                            dwc->gadget_driver	= driver;
                                             switch (dwc->maximum_speed) 
                                                 dwc3_writel(dwc->regs, DWC3_DCFG, reg);
 
@@ -85,6 +87,11 @@ g_dnl_register("usb_dnl_fastboot");
                                                 dwc3_writel(dwc->regs, DWC3_DALEPENA, reg);         // 0xc720
                                             dep = dwc->eps[0];
                                             __dwc3_gadget_ep_enable(dep, &dwc3_gadget_ep0_desc, NULL, false, false);
+                                            /* begin to receive SETUP packets */
+                                            dwc->ep0state = EP0_SETUP_PHASE;
+                                            dwc3_ep0_out_start(dwc);
+
+                                            dwc3_gadget_enable_irq(dwc)
 
                                 usb_gadget_connect(udc->gadget);
                                     gadget->ops->pullup(gadget, 1);
@@ -134,13 +141,12 @@ g_dnl_bind(cdev)
                                         struct f_fastboot *f_fb = fastboot_func;
                                         f_fb->usb_function.name = "f_fastboot";
                                         f_fb->usb_function.bind = fastboot_bind;
-                                        f_fb->usb_function.unbind = fastboot_unbind;
                                         f_fb->usb_function.set_alt = fastboot_set_alt;
                                         f_fb->usb_function.disable = fastboot_disable;
                                         f_fb->usb_function.strings = fastboot_strings;
-                                        status = usb_add_function(c, &f_fb->usb_function);
+                                        usb_add_function(c, &f_fb->usb_function);
                                         // composite.c
-                                        int usb_add_function(struct usb_configuration *config, struct usb_function *function)
+                                        usb_add_function(struct usb_configuration *config, struct usb_function *function)
                                             function->config = config;
                                             list_add_tail(&function->list, &config->functions);
                                             function->bind(config, function);       // fastboot_bind !!!!!!!!!!!!!!!!
