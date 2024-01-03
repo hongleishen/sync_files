@@ -2,10 +2,30 @@
 dwc3_uboot_init()                                                               // core.c
     struct dwc3		*dwc； // 初始化dwc成员
 
+    dwc3_alloc_event_buffers(dwc, DWC3_EVENT_BUFFERS_SIZE);
+        num = DWC3_NUM_INT(dwc->hwparams.hwparams1);        // num =1  
+        for (i = 0; i < num; i++)
+            evt =  dwc3_alloc_one_event_buffer(dwc, length);
+                    evt->dwc	= dwc;
+                    evt->length	= length;
+                    evt->buf  = dma_alloc_coherent(length, (unsigned long *)&evt->dma);
+                                dma_alloc_coherent(size_t len, unsigned long *handle)
+                                        *handle = (unsigned long)memalign(ARCH_DMA_MINALIGN, len);
+                                        return (void *)*handle;
+            dwc->ev_buffs[i] = evt;     // 只有一个
+
     dwc3_core_init()
         dwc3_core_soft_reset
         dwc3_phy_setup
-    
+
+
+    dwc3_event_buffers_setup(dwc);
+        for (n = 0; n < dwc->num_event_buffers; n++) {
+            dwc3_writel(dwc->regs, DWC3_GEVNTADRLO(n), lower_32_bits(evt->dma));
+            dwc3_writel(dwc->regs, DWC3_GEVNTADRHI(n), upper_32_bits(evt->dma));
+            dwc3_writel(dwc->regs, DWC3_GEVNTSIZ(n), DWC3_GEVNTSIZ_SIZE(evt->length));
+            dwc3_writel(dwc->regs, DWC3_GEVNTCOUNT(n), 0);
+
     dwc3_core_init_mode()
         dwc3_set_mode(dwc, DWC3_GCTL_PRTCAP_DEVICE);
         dwc3_gadget_init(dwc);                                                  // gadget.c
