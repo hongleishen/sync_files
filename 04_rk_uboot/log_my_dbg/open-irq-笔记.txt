@@ -1,0 +1,30 @@
+    
+1. evt数据    DMA？
+    dwc3_event_buffers_setup(dwc);
+        for (n = 0; n < dwc->num_event_buffers; n++)
+            dwc3_writel(dwc->regs, DWC3_GEVNTADRLO(n), lower_32_bits(evt->dma));
+            dwc3_writel(dwc->regs, DWC3_GEVNTADRHI(n), upper_32_bits(evt->dma));
+            dwc3_writel(dwc->regs, DWC3_GEVNTSIZ(n), DWC3_GEVNTSIZ_SIZE(evt->length));
+            dwc3_writel(dwc->regs, DWC3_GEVNTCOUNT(n), 0);
+
+    evt = dwc->ev_buffs[buf];
+
+    evt直接就有数据了，里面数据哪里来？
+
+2. 数据交互过程 io，代码分析差不多再看
+
+3. io 加 input暂停函数查看哪里HS波形
+
+
+
+4.  dwc3_ep0_inspect_setup(dwc, event)
+    struct usb_ctrlrequest *ctrl = dwc->ctrl_req;   // shl? ctrl 什么时候拿到数据？   DMA？
+
+int dwc3_gadget_init(struct dwc3 *dwc)
+	dwc->ctrl_req = dma_alloc_coherent(sizeof(*dwc->ctrl_req),
+					(unsigned long *)&dwc->ctrl_req_addr);
+
+void dwc3_ep0_out_start(struct dwc3 *dwc)
+	ret = dwc3_ep0_start_trans(dwc, 0, dwc->ctrl_req_addr, 8,
+				   DWC3_TRBCTL_CONTROL_SETUP, 0);
+	WARN_ON(ret < 0);
