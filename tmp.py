@@ -1,89 +1,23 @@
-本地创建分支，修改，创建远程分支并推送到远程
+在使用 grep 命令时，有一些特殊字符需要转义，以避免它们被解释为正则表达式的一部分。当使用 grep 的默认行为或使用 -E（扩展正则表达式）时，下面的字符在大多数情况下需要转义：
 
-$ git push -u origin 1211
-枚举对象中: 9, 完成.
-对象计数中: 100% (9/9), 完成.
-使用 8 个线程进行压缩
-压缩对象中: 100% (5/5), 完成.
-写入对象中: 100% (5/5), 489 字节 | 489.00 KiB/s, 完成.
-总共 5 （差异 4），复用 0 （差异 0）
-remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
-remote:
-remote: Create a pull request for '1211' on GitHub by visiting:
-remote:      https://github.com/hongleishen/sync_files/pull/new/1211
-remote:
-To github.com:hongleishen/sync_files.git
- * [new branch]      1211 -> 1211
-分支 '1211' 设置为跟踪来自 'origin' 的远程分支 '1211'。
+点号（.）：匹配任何单个字符（除了换行符）。如果要匹配实际的点号，需要使用 \.。
 
+星号（*）：表示前面的字符可以出现零次或多次。要匹配实际的星号，需要使用 \*。
 
+加号（+）：（在扩展正则表达式中）表示前面的字符可以出现一次或多次。要匹配实际的加号，需要使用 \+。
 
+问号（?）：（在扩展正则表达式中）表示前面的字符可以出现零次或一次。要匹配实际的问号，需要使用 \?。
 
+括号（( )）：用于分组。要匹配实际的括号，需要使用 \( 和 \) 。
 
-$ git branch -a
-  1103
-* 1211
-  main
-  remotes/origin/1103
-  remotes/origin/1211
+方括号（[ ]）：用于指定字符类。要匹配实际的方括号，需要使用 \[ 和 \]。
 
-$ git branch -vv
-  1103  bae6362 [origin/1103] money update to 1204
-* 1211  d4fe931 [origin/1211] try 1211 branch
+大括号（{ }）：（在扩展正则表达式中）用于指定前面字符的出现次数。要匹配实际的大括号，需要使用 \{ 和 \}。
 
+竖线（|）：（在扩展正则表达式中）表示逻辑“或”操作。要匹配实际的竖线，需要使用 \|。
 
+反斜杠（\\）：用于转义特殊字符。要匹配实际的反斜杠，需要使用 \\\\。
 
+脱字符（^）：表示行的开始。要匹配实际的脱字符，需要使用 \^。
 
-
-shl@qk-Vostro-3671:~/wks/01_vs_wks/sync_files$ git branch -a
-  1103
-* 1211
-  1211_
-  main
-  remotes/origin/1103
-  remotes/origin/1211
-  remotes/origin/HEAD -> origin/main
-  remotes/origin/init
-  remotes/origin/main
-  remotes/origin/origin/1103
-
-shl@qk-Vostro-3671:~/wks/01_vs_wks/sync_files$ git push origin --delete origin/1103
-To github.com:hongleishen/sync_files.git
- - [deleted]         origin/1103
-
-shl@qk-Vostro-3671:~/wks/01_vs_wks/sync_files$ git branch -a
-  1103
-* 1211
-  1211_
-  main
-  remotes/origin/1103
-  remotes/origin/1211
-  remotes/origin/HEAD -> origin/main
-  remotes/origin/init
-  remotes/origin/main
-
-
-
-shl@qk-Vostro-3671:~/wks/01_vs_wks/sync_files$ git push origin --delete 1103
-To github.com:hongleishen/sync_files.git
- - [deleted]         1103
-shl@qk-Vostro-3671:~/wks/01_vs_wks/sync_files$
-shl@qk-Vostro-3671:~/wks/01_vs_wks/sync_files$
-shl@qk-Vostro-3671:~/wks/01_vs_wks/sync_files$
-shl@qk-Vostro-3671:~/wks/01_vs_wks/sync_files$ git branch -a
-  1103
-* 1211
-  1211_
-  main
-  remotes/origin/1211
-  remotes/origin/HEAD -> origin/main
-  remotes/origin/init
-  remotes/origin/main
-
-
-  git push origin --delete origin/1103          # 删除 remotes/origin/origin/1103
-
-  #                        远程分支省略 remotes/origin
-  git push origin --delete 1103                 # remotes/origin/1103
-  #                    远程分支省略 remotes/origin
-  git push origin 1211:1212                     # remotes/origin/1212
+美元符号（$）：表示行的结束。要匹配实际的美元符号，需要使用 \$。
