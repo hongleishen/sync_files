@@ -1,0 +1,37 @@
+{
+	"folders": [
+		{
+			"name": "03_my_test",
+			"path": "../../03_my_test"
+		},
+		{
+			"name": "06_sync_files",
+			"path": ".."
+		},
+		{
+			"name": "u-boot",
+			"path": "../../01_rk356x_linux/u-boot"
+		}
+	],
+	
+	"settings": {
+		"files.associations": {
+			"common.h": "c",
+			"random": "c",
+			"*.log": "c"
+		}
+
+        "files.exclude": {
+            "**/*.o": true,
+			"**/*.cmd": true,
+			"**/*.su": true,
+			"**/*.bin": true,
+        }
+
+		"search.exclude": {
+            "**/*.o": true,
+			"**/*.cmd": true,
+			"**/*.su": true,
+		},
+	}
+}
